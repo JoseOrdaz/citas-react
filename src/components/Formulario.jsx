@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react"
 
 
-const Formulario = () => {
+const Formulario = ({pacientes, setPacientes}) => {
     
     const [nombre, setNombre] = useState('')
     const [propietario, setPropietario] = useState('')
@@ -22,6 +22,29 @@ const Formulario = () => {
         } 
 
         setError(false)
+
+        //Objeto de paciente
+        const objetoPaciente = {
+            nombre,
+            propietario,
+            email,
+            fecha,
+            sintomas
+
+        }
+
+        setPacientes([...pacientes, objetoPaciente])
+
+        //Reiniciar el formulario del
+
+        setNombre('')
+        setPropietario('')
+        setEmail('')
+        setFecha('')
+        setSintomas('')
+
+
+
     }
 
   return (
@@ -35,10 +58,7 @@ const Formulario = () => {
     <form 
         onSubmit={handleSubmit}
         className="bg-white shadow-xl rounded-lg py-10 px-5 mb-10 font-bold">
-            {error && (
-            <div className="bg-red-800 text-white uppercase p-3 mb-3 rounded-lg text-center">
-                <p>Todos los campos son obligatorios</p>
-            </div>)}
+            {error}
 
         <div className="mb-5">
             <label htmlFor="mascota" className="block text-gray-700 uppercase font-bold">
