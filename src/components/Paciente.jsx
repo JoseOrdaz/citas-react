@@ -1,8 +1,19 @@
 /* eslint-disable react/prop-types */
 
-const Paciente = ({paciente, setPaciente}) => {
+const Paciente = ({paciente, setPaciente,eliminarPaciente}) => {
     
-    const {nombre, propietario, email, fecha, sintomas} = paciente
+    const {nombre, propietario, email, fecha, sintomas, id} = paciente
+
+    const handleEliminar = () => {
+        const respuesta = confirm('¿Deseas eliminar este paciente?')
+
+        if(respuesta){
+            eliminarPaciente(id)
+        }
+
+
+
+    }
 
 
   return (
@@ -32,6 +43,7 @@ const Paciente = ({paciente, setPaciente}) => {
         </button>
         <button 
         type="button"
+        onClick={handleEliminar}
         className="py-2 px-10 bg-red-600 hover:bg-red-700 text-white font-bold rounded-lg uppercase">
             Eliminar
         </button>
