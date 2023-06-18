@@ -1,8 +1,9 @@
 /* eslint-disable react/prop-types */
 import Paciente from "./Paciente";
 const ListadoPacientes = ({ pacientes, setPaciente }) => {
+
   return (
-    <div className="md:w-1/2 lg:w-3/5 md:h-screen md:overflow-y-scroll mb-5">
+    <div className="md:w-1/2 lg:w-3/5 md:h-screen md:overflow-y-scroll mb-5 px-5">
       {pacientes && pacientes.length ? (
         <>
           <h2 className="font-black text-center text-3xl">Listado Pacientes</h2>
@@ -11,6 +12,7 @@ const ListadoPacientes = ({ pacientes, setPaciente }) => {
             <span className="text-sky-700 font-bold">Pacientes y citas</span>
           </p>
           {pacientes.map((paciente) => (
+            
             <Paciente 
               key={paciente.id} 
               paciente={paciente}

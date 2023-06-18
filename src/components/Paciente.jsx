@@ -1,6 +1,9 @@
-const Paciente = ({paciente, setPaciente}) => {
+/* eslint-disable react/prop-types */
 
+const Paciente = ({paciente, setPaciente}) => {
+    
     const {nombre, propietario, email, fecha, sintomas} = paciente
+
 
   return (
     <div className="mt-10 bg-white shadow-md mx-3 px-5 py-10 rounded-lg">
